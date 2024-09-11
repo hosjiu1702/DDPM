@@ -1,11 +1,6 @@
 import torch
 
 
-
-def myfunc():
-
-
-
 # Define number of steps to add noise to input
 T = 1000
 
@@ -25,6 +20,11 @@ for step in range(T):
     alphas_bar.append(_alpha_bar)
     prev_prod = _alpha_bar
 
+
+x_0 = 0. # need to define this quantity
+
+noised_x = []
 # Forward Diffusion
-#for _ in range(T):
-#    pass
+for i in range(T):
+    # sampling x_t at time step t
+    x_i = torch.sqrt(alphas_bar[i])*x_0 + 
