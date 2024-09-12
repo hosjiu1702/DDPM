@@ -27,4 +27,32 @@ noised_x = []
 # Forward Diffusion
 for i in range(T):
     # sampling x_t at time step t
-    x_i = torch.sqrt(alphas_bar[i])*x_0 + 
+    if not isinstance(x_0, torch.Tensor):
+        raise ValueError(f'Input {x_0} should be a torch tensor.')
+    x_i = torch.sqrt(alphas_bar[i]) * x_0 + torch.sqrt(1 - alphas_bar[i]) * torch.normal(mean=1., std=1., x_0.shape)
+    noised_x.append(x_i)
+
+# Reverse process
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
